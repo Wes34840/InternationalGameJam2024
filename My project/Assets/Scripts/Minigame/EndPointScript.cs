@@ -1,13 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EndPointScript : MonoBehaviour
 {
+    public string scene;
     private float _progress;
     [SerializeField] private Slider _slider;
-    private void Start()
-    {
-    }
     private void Update()
     {
         if (_progress > 0)
@@ -18,7 +17,8 @@ public class EndPointScript : MonoBehaviour
         if (_progress == _slider.maxValue)
         {
             LaserScript.gameIsActive = false;
-            Debug.Log("WinGame");
+
+            LoadNewLevel();
         }
     }
 
@@ -26,6 +26,11 @@ public class EndPointScript : MonoBehaviour
     {
         _progress += increase;
         _slider.value = _progress;
+    }
+
+    public void LoadNewLevel()
+    {
+        SceneManager.LoadScene(scene);
     }
 
 }

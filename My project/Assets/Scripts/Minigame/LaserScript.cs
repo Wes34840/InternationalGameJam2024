@@ -65,6 +65,10 @@ public class LaserScript : MonoBehaviour
                 _laserIndices.Add(hitInfo.point);
                 hitInfo.collider.GetComponent<EndPointScript>().AddToProgress(Time.deltaTime);
             }
+            else if (hitInfo.collider.CompareTag("Ground"))
+            {
+                _laserIndices.Add(hitInfo.point);
+            }
             UpdateLaser();
         }
     }
