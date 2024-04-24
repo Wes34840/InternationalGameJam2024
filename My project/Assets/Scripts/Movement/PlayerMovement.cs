@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody _rb;
-    [SerializeField] private float _movementSpeed;
+    private Rigidbody rb;
+    [SerializeField] private float movementSpeed;
+    [SerializeField] private Animator anim;
+    bool isMoving;
 
     void Start()
     {
@@ -13,6 +15,18 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Vector3 playerInput = GetPlayerInput();
+
+        if (playerInput != Vector3.zero && !isMoving)
+        {
+            isMoving = true;
+            anim.SetBool("IsWalking", true);
+        }
+        else if (playerInput == Vector3.zero)
+        {
+            isMoving = false;
+            anim.SetBool("IsWalking", false);
+        }
+
         float currGrav = GetGravity();
 
         ApplyControlMotion(playerInput);
@@ -37,4 +51,6 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb.velocity = new Vector3(_rb.velocity.x, grav, _rb.velocity.z);
     }
+
+
 }
