@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody rb;
-    [SerializeField] private float movementSpeed;
-    [SerializeField] private Animator anim;
+    private Rigidbody _rb;
+    [SerializeField] private float _movementSpeed;
+    [SerializeField] private Animator _anim;
     bool isMoving;
 
     void Start()
@@ -19,12 +19,12 @@ public class PlayerMovement : MonoBehaviour
         if (playerInput != Vector3.zero && !isMoving)
         {
             isMoving = true;
-            anim.SetBool("IsWalking", true);
+            _anim.SetBool("IsWalking", true);
         }
         else if (playerInput == Vector3.zero)
         {
             isMoving = false;
-            anim.SetBool("IsWalking", false);
+            _anim.SetBool("IsWalking", false);
         }
 
         float currGrav = GetGravity();

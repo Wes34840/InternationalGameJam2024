@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class GlowOnHover : MonoBehaviour
 {
@@ -11,7 +9,7 @@ public class GlowOnHover : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
     private void Update()
     {
@@ -28,11 +26,15 @@ public class GlowOnHover : MonoBehaviour
             _interactableObject = hit.collider.gameObject;
             _interactableObject.GetComponent<Renderer>().materials[1].SetFloat("_Scale", 1.02f);
             text.text = (hit.collider.name);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                hit.collider.GetComponent<InteractableObject>().InteractWithObject();
+            }
         }
         else
         {
             canvasGroup.alpha = 0;
-            if(_interactableObject == null)
+            if (_interactableObject == null)
             {
                 return;
             }
@@ -40,11 +42,6 @@ public class GlowOnHover : MonoBehaviour
         }
 
 
-
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
 
     }
 }
