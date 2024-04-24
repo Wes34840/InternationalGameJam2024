@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody rb;
-    [SerializeField] private float movementSpeed;
+    private Rigidbody _rb;
+    [SerializeField] private float _movementSpeed;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -25,16 +25,16 @@ public class PlayerMovement : MonoBehaviour
     }
     private void ApplyControlMotion(Vector3 inputDirection)
     {
-        rb.velocity = ((transform.forward * inputDirection.z) + (transform.right * inputDirection.x)) * movementSpeed;
+        _rb.velocity = ((transform.forward * inputDirection.z) + (transform.right * inputDirection.x)) * _movementSpeed;
     }
 
     private float GetGravity()
     {
-        return rb.velocity.y;
+        return _rb.velocity.y;
     }
 
     private void ApplyGravity(float grav)
     {
-        rb.velocity = new Vector3(rb.velocity.x, grav, rb.velocity.z);
+        _rb.velocity = new Vector3(_rb.velocity.x, grav, _rb.velocity.z);
     }
 }
