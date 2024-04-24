@@ -1678,25 +1678,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2520030687070971727, guid: 6d9119072efa1b94eb2d42fedceac0bc,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2520030687070971727, guid: 6d9119072efa1b94eb2d42fedceac0bc,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4823817605648588362, guid: 6d9119072efa1b94eb2d42fedceac0bc,
         type: 3}
       propertyPath: m_Name
       value: Mirror
-      objectReference: {fileID: 0}
-    - target: {fileID: 5876487453951273702, guid: 6d9119072efa1b94eb2d42fedceac0bc,
-        type: 3}
-      propertyPath: _rotateSpeed
-      value: 30.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
